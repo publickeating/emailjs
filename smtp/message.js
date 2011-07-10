@@ -42,7 +42,7 @@ var Message = function(headers)
 	}
 };
 
-Message.prototype = 
+Message.prototype =
 {
 
 	attach: function(path, type, name)
@@ -192,7 +192,7 @@ var MessageStream = function(message)
 		data		= data.concat(["Content-Disposition: attachment; filename=\"", attachment.name, "\"", CRLF, CRLF]);
 
 		self.emit('data', data.join(""));
-		
+
 		var mimechunk 	= 76; // MIME standard wants 76 char chunks when sending out
 		var chunk		= mimechunk*25*3; // 5700
 		var buffer 		= new Buffer(chunk);
@@ -322,7 +322,7 @@ MessageStream.prototype.destroySoon = function()
 util.inherits(MessageStream, stream.Stream);
 
 exports.Message = Message;
-exports.create = function(headers) 
+exports.create = function(headers)
 {
 	return new Message(headers);
 };
