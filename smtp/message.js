@@ -62,7 +62,7 @@ Message.prototype =
 		if(!this.header["from"])
 			return false;
 
-		if(!this.header["to"])
+		if(!this.header["to"] && !this.header["cc"] && !this.header["bcc"])
 			return false;
 
 		return true;
